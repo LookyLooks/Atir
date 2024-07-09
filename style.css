@@ -1,16 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+}
 
 .frame {
     background-color: #121212;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .frame .div {
     background-color: #121212;
-    width: 1512px;
-    height: 3220px;
+    width: 100%;
+    max-width: 1512px;
+    margin: 0 auto;
     position: relative;
 }
 
@@ -52,14 +57,41 @@
 }
 
 .frame .div-3 {
-    position: absolute;
-    width: 1512px;
+    position: relative;
+    width: 100vw;
     height: 982px;
-    top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-image: url(./img/frame-2.jpg);
     background-size: cover;
     background-position: 50% 50%;
+}
+
+/* Add this new rule to contain absolutely positioned elements */
+.frame .div > * {
+    position: relative;
+    max-width: 100%;
+}
+
+/* Adjust other absolutely positioned elements */
+.frame .div-2,
+.frame .frame-wrapper,
+.frame .frame-wrapper-2,
+.frame .frame-wrapper-3,
+.frame .frame-wrapper-4,
+.frame .frame-wrapper-5,
+.frame .div-12 {
+    position: relative;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: 1512px;
+    margin: 0 auto;
+}
+
+/* Add some spacing between sections */
+.frame .div > * + * {
+    margin-top: 50px;
 }
 
 .frame .div-4 {
