@@ -1,97 +1,139 @@
+html {
+    margin: 0;
+    padding: 0;
+
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+}
+
 body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
     background-color: #121212;
 }
 
 .frame {
-    background-color: #121212;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background-color: #121212;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.frame .div {
-    background-color: #121212;
+.frame .div,
+.frame .frame-wrapper {
     width: 100%;
-    max-width: 1512px;
-    margin: 0 auto;
+}
+
+
+
+.frame .div {
+    flex-direction: column;
+    height: 982px;
+    gap: 324px;
+    background-image: url(./img/frame-2.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    display: flex;
+    align-items: center;
     position: relative;
+    width: 100%;
+    padding-top: 65px;
+    overflow: hidden;
+    margin: 0; /* Ensure no margin */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .frame .div-2 {
     display: flex;
-    flex-direction: column;
-    width: 683px;
     align-items: center;
-    gap: 22px;
+    justify-content: space-between;
+    padding: 25px 200px;
     position: absolute;
-    top: 1182px;
-    left: 415px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0000001a;
+    backdrop-filter: blur(10px) brightness(100%);
+    -webkit-backdrop-filter: blur(10px) brightness(100%);
+    z-index: 10;
+    box-sizing: border-box;
 }
 
-.frame .luxury-PR-events {
-    font-family: "Sora-SemiBold", Helvetica;
-    font-weight: 600;
-    font-size: 40px;
-    text-align: center;
-    position: relative;
-    align-self: stretch;
-    margin-top: -1px;
-    color: #ffffff;
-    letter-spacing: 0;
-    line-height: normal;
+/* Add this new rule to create space for the fixed navbar */
+.frame .div {
+    padding-top: 65px; /* Adjust this value based on your navbar height */
 }
 
 .frame .text-wrapper {
     position: relative;
-    align-self: stretch;
-    opacity: 0.7;
-    font-family: "SF Pro Display-Regular", Helvetica;
-    font-weight: 400;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Sora-ExtraBold", Helvetica;
+    font-weight: 800;
     color: #ffffff;
-    font-size: 20px;
-    text-align: center;
-    letter-spacing: 0;
+    font-size: 40px;
+    letter-spacing: -6.4px;
     line-height: normal;
 }
 
 .frame .div-3 {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
     position: relative;
-    width: 100vw;
-    height: 982px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-image: url(./img/frame-2.jpg);
-    background-size: cover;
-    background-position: 50% 50%;
+    flex: 0 0 auto;
 }
 
-/* Add this new rule to contain absolutely positioned elements */
-.frame .div > * {
+.frame .div-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 4px;
     position: relative;
-    max-width: 100%;
+    flex: 0 0 auto;
 }
 
-/* Adjust other absolutely positioned elements */
-.frame .div-2,
-.frame .frame-wrapper,
-.frame .frame-wrapper-2,
-.frame .frame-wrapper-3,
-.frame .frame-wrapper-4,
-.frame .frame-wrapper-5,
-.frame .div-12 {
+.frame .text-wrapper-2 {
     position: relative;
-    left: auto;
-    right: auto;
-    width: 100%;
-    max-width: 1512px;
-    margin: 0 auto;
+    width: fit-content;
+    margin-top: -4px;
+    font-family: "Sora-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
-/* Add some spacing between sections */
-.frame .div > * + * {
-    margin-top: 50px;
+.frame .div-wrapper-2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 4px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .text-wrapper-3 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Sora-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
 }
 
 .frame .div-4 {
@@ -101,7 +143,7 @@ body {
     align-items: flex-start;
     gap: 40px;
     position: absolute;
-    top: 404px;
+    top: 464px;
     left: 200px;
 }
 
@@ -120,6 +162,7 @@ body {
     position: relative;
     align-self: stretch;
     margin-top: -1px;
+    margin-bottom: 0; /* Add this line to remove bottom margin */
     font-family: "Sora-ExtraBold", Helvetica;
     font-weight: 800;
     color: var(--lookysyswhite);
@@ -151,7 +194,7 @@ body {
     border-color: var(--lookysyswhite);
 }
 
-.frame .text-wrapper-2 {
+.frame .text-wrapper-4 {
     position: relative;
     width: fit-content;
     margin-top: -3px;
@@ -177,97 +220,101 @@ body {
     left: 0;
 }
 
+.frame .frame-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 134px 0;
+    position: relative;
+    background-color: #121212;
+    margin: 0; /* Ensure no margin */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
 .frame .div-7 {
-    position: absolute;
-    width: 1512px;
-    height: 80px;
-    top: 0;
-    left: 0;
-    background-color: #0000001a;
-    backdrop-filter: blur(10px) brightness(100%);
-    -webkit-backdrop-filter: blur(10px) brightness(100%);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 104px;
+    position: relative;
+    flex: 0 0 auto;
 }
 
 .frame .div-8 {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
+    width: 683px;
     align-items: center;
-    gap: 24px;
-    position: absolute;
-    top: 18px;
-    left: 785px;
-}
-
-.frame .div-wrapper {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 4px;
-    position: relative;
-    flex: 0 0 auto;
-    border-bottom-width: 4px;
-    border-bottom-style: solid;
-    border-color: #ffffff;
-}
-
-.frame .text-wrapper-3 {
-    position: relative;
-    width: fit-content;
-    margin-top: -4px;
-    font-family: "Sora-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #ffffff;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.frame .div-wrapper-2 {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 4px;
+    gap: 22px;
     position: relative;
     flex: 0 0 auto;
 }
 
-.frame .text-wrapper-4 {
-    position: relative;
-    width: fit-content;
-    margin-top: -1px;
+.frame .luxury-PR-events {
     font-family: "Sora-SemiBold", Helvetica;
     font-weight: 600;
-    color: #ffffff;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.frame .text-wrapper-5 {
-    position: absolute;
-    top: 9px;
-    left: 200px;
-    font-family: "Sora-ExtraBold", Helvetica;
-    font-weight: 800;
-    color: #ffffff;
     font-size: 40px;
-    letter-spacing: -6.4px;
+    text-align: center;
+    position: relative;
+    align-self: stretch;
+    margin-top: -1px;
+    color: #ffffff;
+    letter-spacing: 0;
     line-height: normal;
 }
 
-.frame .frame-wrapper {
-    position: absolute;
-    width: 960px;
+.frame .p {
+    position: relative;
+    align-self: stretch;
+    opacity: 0.7;
+    font-family: "SF Pro Display-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.frame .div-9 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.frame .div-10 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.frame .frame-wrapper-2 {
+    position: relative;
+    align-self: stretch;
+    width: 100%;
     height: 488px;
-    top: 1415px;
-    left: 276px;
     background-image: url(./img/frame-11.png);
     background-size: cover;
     background-position: 50% 50%;
 }
 
-.frame .div-9 {
+.frame .div-11 {
     display: flex;
     flex-direction: column;
     width: 363px;
@@ -278,7 +325,7 @@ body {
     left: 597px;
 }
 
-.frame .text-wrapper-6 {
+.frame .text-wrapper-5 {
     position: relative;
     align-self: stretch;
     margin-top: -1px;
@@ -290,7 +337,7 @@ body {
     line-height: normal;
 }
 
-.frame .p {
+.frame .text-wrapper-6 {
     position: relative;
     align-self: stretch;
     opacity: 0.7;
@@ -302,64 +349,26 @@ body {
     line-height: normal;
 }
 
-.frame .frame-wrapper-2 {
-    position: absolute;
-    width: 301px;
-    height: 484px;
-    top: 1918px;
-    left: 935px;
-    background-image: url(./img/frame-15.png);
-    background-size: cover;
-    background-position: 50% 50%;
-}
-
-.frame .div-10 {
+.frame .div-12 {
+    gap: 24px;
+    flex: 0 0 auto;
     display: flex;
-    flex-direction: column;
-    width: 269px;
-    align-items: flex-start;
-    gap: 15px;
-    position: relative;
-    top: 27px;
-    left: 20px;
-}
-
-.frame .luxury-PR-branding {
-    font-family: "Sora-Regular", Helvetica;
-    font-weight: 400;
-    font-size: 16px;
+    align-items: center;
     position: relative;
     align-self: stretch;
-    margin-top: -1px;
-    color: #ffffff;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.frame .image-de-marque {
-    position: relative;
-    align-self: stretch;
-    opacity: 0.7;
-    font-family: "SF Pro Display-Regular", Helvetica;
-    font-weight: 400;
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 0;
-    line-height: normal;
+    width: 100%;
 }
 
 .frame .frame-wrapper-3 {
-    position: absolute;
+    position: relative;
     width: 635px;
     height: 484px;
-    top: 1918px;
-    left: 276px;
     background-image: url(./img/frame-13.png);
     background-size: cover;
     background-position: 50% 50%;
 }
 
-.frame .div-11 {
+.frame .div-13 {
     display: flex;
     flex-direction: column;
     width: 325px;
@@ -395,36 +404,75 @@ body {
 }
 
 .frame .frame-wrapper-4 {
-    position: absolute;
+    position: relative;
     width: 301px;
     height: 484px;
-    top: 2416px;
-    left: 276px;
+    background-image: url(./img/frame-15.png);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.frame .div-14 {
+    display: flex;
+    flex-direction: column;
+    width: 269px;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+    top: 27px;
+    left: 20px;
+}
+
+.frame .luxury-PR-branding {
+    font-family: "Sora-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 16px;
+    position: relative;
+    align-self: stretch;
+    margin-top: -1px;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.frame .image-de-marque {
+    position: relative;
+    align-self: stretch;
+    opacity: 0.7;
+    font-family: "SF Pro Display-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.frame .frame-wrapper-5 {
+    position: relative;
+    width: 301px;
+    height: 484px;
     background-image: url(./img/frame-17.png);
     background-size: cover;
     background-position: 50% 50%;
 }
 
-.frame .frame-wrapper-5 {
-    position: absolute;
+.frame .frame-wrapper-6 {
+    position: relative;
     width: 635px;
     height: 484px;
-    top: 2416px;
-    left: 601px;
     background-image: url(./img/frame-16.png);
     background-size: cover;
     background-position: 50% 50%;
 }
 
-.frame .div-12 {
+.frame .div-15 {
     display: flex;
     flex-direction: column;
     width: 468px;
     align-items: center;
     gap: 34px;
-    position: absolute;
-    top: 2995px;
-    left: 522px;
+    position: relative;
+    flex: 0 0 auto;
 }
 
 .frame .atir-luxury-PR-2 {
